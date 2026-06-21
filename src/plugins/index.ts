@@ -91,9 +91,10 @@ export const plugins: Plugin[] = [
     },
   }),
   // Persist uploaded media to Vercel Blob (local disk is not durable on serverless).
-  // Falls back to local storage when BLOB_READ_WRITE_TOKEN is not set (e.g. local dev).
+  // Only activates with a properly-formed token; otherwise falls back to local storage
+  // (e.g. local dev) instead of crashing the build on a malformed/placeholder value.
   vercelBlobStorage({
-    enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+    enabled: process.env.BLOB_READ_WRITE_TOKEN?.startsWith('vercel_blob_rw_') ?? false,
     collections: {
       media: true,
     },
