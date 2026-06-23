@@ -48,9 +48,7 @@ export default async function HomePage() {
           Thoughts and Experiences
         </h1>
         <p className="text-muted-foreground text-lg max-w-2xl">
-          This is where I write about whatever I find interesting: travel, music, film and TV,
-          philosophy, sport, the projects I&apos;m building, and the things I&apos;m learning along
-          the way. For my work and projects, head to{' '}
+          This is where I write about whatever I find interesting. For my work and projects, head to{' '}
           <a className="text-primary hover:underline" href="https://www.ethantyler.dev">
             my portfolio
           </a>
